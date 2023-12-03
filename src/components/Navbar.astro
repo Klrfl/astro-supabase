@@ -1,3 +1,8 @@
+---
+const data = Astro.locals;
+const user = data?.user;
+---
+
 <nav>
   <ul class="nav-links">
     <li><a href="/">home</a></li>
@@ -5,14 +10,22 @@
     <li><a href="/sign-in">sign in</a></li>
     <li><a href="/register">register</a></li>
   </ul>
+
+  <span>{user?.email}</span>
 </nav>
 
 <style>
+  nav {
+    box-shadow: 0 5px 5px 2px #ddda;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .nav-links {
     list-style: none;
     margin: 0;
     padding: 0;
-    box-shadow: 0 5px 5px 2px #ddda;
 
     display: flex;
     justify-content: center;
