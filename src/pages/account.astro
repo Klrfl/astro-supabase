@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const data = Astro.locals;
+const user = data.user;
+---
+
+<BaseLayout>
+  <header>
+    <h1>Account settings</h1>
+  </header>
+
+  <section class="main-section">
+    <h2>Sign out</h2>
+
+    <form action="api/auth/sign-out" method="POST">
+      <label for="email">Email</label>
+      <input type="email" required />
+      <label for="password">Password</label>
+      <input type="password" required /><label for="confirm-password"
+        >Confirm password
+      </label>
+      <input type="password" id="confirm-password" required />
+
+      <button>Sign out</button>
+    </form>
+  </section>
+
+  <section class="main-section">
+    <h2>Delete account</h2>
+    <p>Danget zone: deleting your account cannot be reversed.</p>
+
+    <button>delete my account</button>
+  </section>
+</BaseLayout>

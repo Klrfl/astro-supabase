@@ -2,9 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Klrfl's Guestbook";
+const data = Astro.locals;
+const user = data.user;
 ---
 
 <BaseLayout title={title}>
-  <h1>Anjing</h1>
+  {user ? <h1>Selamat datang, {user.email}!</h1> : <h1>Selamat datang!</h1>}
   <p>Trying out supabase and Astro together</p>
 </BaseLayout>
