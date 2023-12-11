@@ -1,17 +1,32 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
 ---
 
 <BaseLayout>
-  <h1>Sign in</h1>
-  <p>don't have an account? <a href="/register">register instead</a></p>
+  <section class="main-section max-w-prose">
+    <h1>Sign in</h1>
+    <p>don't have an account? <a href="/register">register instead</a></p>
 
-  <form action="api/auth/sign-in" method="POST">
-    <label for="email">email</label>
-    <input type="email" id="email" name="email" required />
-    <label for="name">Password</label>
-    <input type="password" id="email" name="password" required />
+    <form action="api/auth/sign-in" method="POST">
+      <label for="email">email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="youremail@gmail.com"
+        required
+      />
+      <label for="name">Password</label>
+      <input
+        type="password"
+        id="email"
+        name="password"
+        placeholder="your super secret password"
+        required
+      />
 
-    <button type="submit">Sign up</button>
-  </form>
+      <CTA>Sign up</CTA>
+    </form>
+  </section>
 </BaseLayout>

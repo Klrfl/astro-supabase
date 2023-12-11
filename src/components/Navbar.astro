@@ -3,23 +3,33 @@ const data = Astro.locals;
 const user = data?.user;
 ---
 
-<nav>
-  <ul class="nav-links">
-    <li><a href="/">home</a></li>
+<nav class="flex justify-between m-4 rounded-md shadow-lg z-10 bg-slate-200">
+  <ul class="nav-links flex">
+    <li>
+      <a class="nav-link" href="/">Home</a>
+    </li>
 
-    <li><a href="/guestbook">Guestbook</a></li>
+    <li>
+      <a class="nav-link" href="/guestbook">Guestbook</a>
+    </li>
     {
       user ? (
         <li>
-          <a href="/account">Account</a>
+          <a class="nav-link" href="/account">
+            Account
+          </a>
         </li>
       ) : (
         <>
           <li>
-            <a href="/sign-in">Sign in</a>
+            <a class="nav-link" href="/sign-in">
+              Sign in
+            </a>
           </li>
           <li>
-            <a href="/register">Register</a>
+            <a class="nav-link" href="/register">
+              Register
+            </a>
           </li>
         </>
       )
@@ -28,32 +38,3 @@ const user = data?.user;
 
   <span>{user?.email}</span>
 </nav>
-
-<style>
-  nav {
-    box-shadow: 0 5px 5px 2px #ddda;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    display: flex;
-    justify-content: center;
-  }
-
-  .nav-links a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    padding: 1rem;
-  }
-
-  .nav-links a:hover {
-    background: #ddd;
-  }
-</style>

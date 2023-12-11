@@ -1,0 +1,33 @@
+---
+const { isLink } = Astro.props;
+---
+
+{
+  isLink ? (
+    <a class="cta">
+      <slot />
+    </a>
+  ) : (
+    <button class="cta">
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  .cta {
+    @apply bg-slate-200 p-4 my-2 rounded-md shadow;
+  }
+
+  .cta:hover {
+    @apply bg-slate-300;
+  }
+
+  .cta:active {
+    translate: 0 4px;
+  }
+
+  cta:focus-visible {
+    @apply ring;
+  }
+</style>

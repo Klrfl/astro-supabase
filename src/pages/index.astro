@@ -7,6 +7,38 @@ const user = data.user;
 ---
 
 <BaseLayout title={title}>
-  {user ? <h1>Selamat datang, {user.email}!</h1> : <h1>Selamat datang!</h1>}
-  <p>Trying out supabase and Astro together</p>
+  <section class="main-section text-center max-w-4xl mx-auto">
+    <h1 class="text-5xl">
+      {
+        user ? (
+          <span>Selamat datang, {user.email}</span>
+        ) : (
+          <span>Selamat datang!</span>
+        )
+      }
+    </h1>
+    <p>
+      Soo, I was trying out Supabase and Astro (SSR) together, and made this
+      little guestbook app inspired by this <a
+        href="https://github.com/kevinzunigacuellar/astro-supabase"
+        >Astro X Supabase app</a
+      >.
+    </p>
+
+    <h2>Now what?</h2>
+    <p>I don't know, check out these links probably</p>
+
+    <ul class="flex flex-wrap gap-4 justify-center">
+      <li class="nugget">
+        <a href="/guestbook">
+          <p>Go sign my guestbook now!</p>
+        </a>
+      </li>
+      <li class="nugget">
+        <a href="https://klrfl.netlify.app">
+          <p>See how I made it</p>
+        </a>
+      </li>
+    </ul>
+  </section>
 </BaseLayout>
