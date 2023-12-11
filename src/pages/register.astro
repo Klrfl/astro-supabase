@@ -4,8 +4,11 @@ import CTA from "../components/CTA.astro";
 ---
 
 <BaseLayout>
-  <section class="main-section max-w-prose">
+  <header>
     <h1>Register</h1>
+  </header>
+
+  <section class="main-section max-w-prose">
     <p>Already have an account? <a href="/register">sign in instead</a></p>
 
     <form action="api/auth/register" method="POST">

@@ -1,14 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
 ---
 
 <BaseLayout>
-  <h1>SIGN UP (ALMOST) SUCCESSFUL</h1>
-  <p>
-    Check your email to complete your sign up. After completing the sign in
-    process, you can close this page
-  </p>
-  <p>
-    <a href="/">back to home</a>
-  </p>
+  <section class="main-section text-center">
+    <div class="main-section__text mx-auto">
+      <h1>SIGN UP (ALMOST) SUCCESSFUL</h1>
+      <p>
+        Check your email to complete your sign up. After completing the sign in
+        process, you can close this page
+      </p>
+      <p>
+        <CTA class="mx-auto" href="/">back to home</CTA>
+      </p>
+    </div>
+  </section>
 </BaseLayout>

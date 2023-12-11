@@ -4,11 +4,11 @@
 
 @layer base {
   h1 {
-    @apply text-4xl leading-3;
+    @apply text-4xl leading-4;
   }
 
   h2 {
-    @apply text-2xl leading-5 mt-2;
+    @apply text-2xl leading-6 mt-4 mb-2;
   }
 
   p {
@@ -35,6 +35,10 @@
   input {
     @apply block p-4 w-full border-2 border-solid border-gray-200 rounded;
   }
+
+  header {
+    @apply p-4;
+  }
 }
 
 @layer components {
@@ -51,6 +55,10 @@
   }
 
   .main-section {
-    @apply max-w-5xl p-8;
+    @apply p-8;
+  }
+
+  .main-section > * {
+    @apply max-w-5xl;
   }
 }

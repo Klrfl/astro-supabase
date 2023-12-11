@@ -1,14 +1,14 @@
 ---
-const { isLink } = Astro.props;
+const { class: className = "", isLink } = Astro.props;
 ---
 
 {
   isLink ? (
-    <a class="cta">
+    <a class:list={[className, "cta"]}>
       <slot />
     </a>
   ) : (
-    <button class="cta">
+    <button class:list={[className, "cta"]}>
       <slot />
     </button>
   )
@@ -16,7 +16,7 @@ const { isLink } = Astro.props;
 
 <style>
   .cta {
-    @apply bg-slate-200 p-4 my-2 rounded-md shadow;
+    @apply bg-slate-200 p-4 rounded-md shadow;
   }
 
   .cta:hover {

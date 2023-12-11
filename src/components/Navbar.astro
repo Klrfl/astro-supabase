@@ -3,8 +3,13 @@ const data = Astro.locals;
 const user = data?.user;
 ---
 
-<nav class="flex justify-between m-4 rounded-md shadow-lg z-10 bg-slate-200">
+<nav>
+  <button class="open-nav">Open nav</button>
+
   <ul class="nav-links flex">
+    <li class="nav-links__header">
+      <button class="close-nav">Close nav</button>
+    </li>
     <li>
       <a class="nav-link" href="/">Home</a>
     </li>
@@ -35,6 +40,26 @@ const user = data?.user;
       )
     }
   </ul>
-
-  <span>{user?.email}</span>
 </nav>
+
+<style>
+  nav {
+    @apply flex justify-between m-4 rounded-md shadow-lg relative z-10 bg-slate-200;
+  }
+
+  .open-nav,
+  .close-nav {
+    @apply hidden;
+  }
+
+  @media screen and (max-width: 50em) {
+    .nav-links {
+      @apply absolute inset-0 translate-x-full invisible;
+    }
+
+    .open-nav,
+    .close-nav {
+      @apply block p-4;
+    }
+  }
+</style>
