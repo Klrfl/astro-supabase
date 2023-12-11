@@ -1,16 +1,56 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl leading-3;
+  }
+
+  h2 {
+    @apply text-2xl leading-5 mt-2;
+  }
+
+  p {
+    @apply my-4 text-base;
+  }
+
+  a {
+    @apply text-sky-700;
+  }
+
+  a:hover {
+    @apply text-sky-500;
+  }
+
+  a:focus-visible {
+    @apply ring-sky-200;
+  }
+
+  label {
+    @apply block pt-4 pb-2;
+    text-transform: capitalize;
+  }
+
+  input {
+    @apply block p-4 w-full border-2 border-solid border-gray-200 rounded;
+  }
 }
 
-input,
-label {
-  display: block;
-}
+@layer components {
+  .nav-link {
+    @apply block p-4 hover:bg-slate-300 hover:text-inherit transition-colors text-inherit;
+  }
 
-label {
-  padding-block: 1rem;
-}
+  .nugget {
+    @apply rounded outline outline-slate-200 outline-2 shadow-md hover:bg-slate-300 transition-colors flex-auto;
+  }
 
-input {
-  padding: 0.5rem 1rem;
+  .nugget a {
+    @apply p-8 text-inherit block;
+  }
+
+  .main-section {
+    @apply max-w-5xl p-8;
+  }
 }
