@@ -1,10 +1,37 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import GuestbookForm from "../components/GuestbookForm.vue";
+import GuestbookList from "../components/GuestbookList.vue";
+
 const data = Astro.locals;
 const user = data.user;
 ---
 
 <BaseLayout>
-  <h1>Guestbook</h1>
-  <p>Welcome to the guestbook, {user.email}</p>
+  <header>
+    <h1>Guestbook</h1>
+    <p>Welcome to the guestbook, {user.email}</p>
+  </header>
+
+  <section class="main-section">
+    <div class="main-section__text mx-auto">
+      <h2>Put your message here!</h2>
+      <p>
+        You can only submit 3 messages, and you can't type more than 420
+        characters.
+      </p>
+    </div>
+
+    <div class="main-section__content mx-auto max-w-5xl">
+      <GuestbookForm client:load />
+    </div>
+  </section>
+
+  <section class="main-section">
+    <div class="main-section__text mx-auto">
+      <h2>Guestbook list</h2>
+    </div>
+
+    <GuestbookList client:visible />
+  </section>
 </BaseLayout>

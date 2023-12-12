@@ -39,9 +39,16 @@
   header {
     @apply p-4;
   }
+
+  button:disabled {
+    @apply text-gray-400 cursor-not-allowed;
+  }
 }
 
 @layer components {
+  .message {
+    @apply text-gray-400;
+  }
   .nav-link {
     @apply block p-4 hover:bg-slate-300 hover:text-inherit transition-colors text-inherit;
   }
