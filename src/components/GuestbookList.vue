@@ -29,16 +29,16 @@ onMounted(async () => {
 });
 
 async function updateGuestbookData(payload) {
+  console.log(payload);
   try {
     guestbookArray.value = await getGuestbookData();
-    console.log(payload);
   } catch (err) {
     console.error(err.message);
   }
 }
 
 supabase
-  .channel("guestbook-list-changes")
+  .channel("guestbook-changes")
   .on(
     "postgres_changes",
     { event: "*", schema: "public", table: "guestbook" },
@@ -48,7 +48,7 @@ supabase
 </script>
 
 <template>
-  <ul class="max-w-5xl mx-auto grid grid-cols-2 gap-4">
+  <ul class="max-w-5xl mx-auto grid grid-cols-auto gap-4">
     <li class="message" v-if="isLoading">Loading messages...</li>
     <li class="message" v-else-if="!guestbookArray.length">
       No messages yet. Be the first to write one!
