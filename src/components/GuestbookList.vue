@@ -28,7 +28,6 @@ onMounted(async () => {
 });
 
 async function updateGuestbookData(payload) {
-  console.log(payload);
   switch (payload.eventType) {
     case "INSERT":
       try {
