@@ -4,11 +4,8 @@ import CTA from "../components/CTA.vue";
 ---
 
 <BaseLayout>
-  <header>
+  <section class="main-section max-w-4xl mx-auto">
     <h1>Register</h1>
-  </header>
-
-  <section class="main-section max-w-prose">
     <p>Already have an account? <a href="/register">sign in instead</a></p>
 
     <form action="api/auth/register" method="POST">
@@ -37,7 +34,7 @@ import CTA from "../components/CTA.vue";
         required
       />
 
-      <CTA fill>register</CTA>
+      <CTA fill class="my-4">register</CTA>
     </form>
   </section>
 </BaseLayout>

@@ -33,15 +33,19 @@
   }
 
   input {
-    @apply block p-4 w-full border-2 border-solid border-gray-200 rounded;
+    @apply block p-4 w-full border-2 border-solid border-gray-200 rounded-md;
   }
 
   header {
-    @apply p-4;
+    @apply p-8;
   }
 
   button:disabled {
     @apply text-gray-400 cursor-not-allowed;
+  }
+
+  button:focus-visible {
+    @apply ring;
   }
 }
 
@@ -54,7 +58,7 @@
   }
 
   .nugget {
-    @apply rounded outline outline-slate-200 outline-2 shadow-md hover:bg-slate-300 transition-colors flex-auto;
+    @apply rounded-md outline outline-slate-200 outline-2 shadow-md hover:bg-slate-300 transition-colors flex-auto;
   }
 
   .nugget a {
