@@ -13,9 +13,8 @@ async function getGuestbookData() {
     isLoading.value = true;
     const { data, error } = await supabase
       .from("guestbook")
-      .select("message, created_at, updated_at, profiles(name)");
+      .select("*, profiles(name)");
     if (error) throw error;
-
     return data;
   } catch (err) {
     console.error(err.message);
@@ -30,10 +29,48 @@ onMounted(async () => {
 
 async function updateGuestbookData(payload) {
   console.log(payload);
-  try {
-    guestbookArray.value = await getGuestbookData();
-  } catch (err) {
-    console.error(err.message);
+  switch (payload.eventType) {
+    case "INSERT":
+      try {
+        const { data, error } = await supabase
+          .from("guestbook")
+          .select("*, profiles(name)")
+          .eq("id", payload.new.id)
+          .single();
+        if (error) throw error;
+        guestbookArray.value.push(data);
+      } catch (err) {
+        console.error(err.message);
+      }
+      break;
+
+    case "DELETE":
+      const oldItem = guestbookArray.value.indexOf(payload.old);
+      guestbookArray.value.splice(oldItem, 1);
+      break;
+
+    case "UPDATE":
+      try {
+        const { data, error } = await supabase
+          .from("guestbook")
+          .select("*, profiles(name)")
+          .eq("id", payload.new.id)
+          .single();
+        if (error) throw error;
+        const oldItem = guestbookArray.value.indexOf(payload.old);
+        guestbookArray.value.splice(oldItem, 1, data);
+      } catch (err) {
+        console.error(err.message);
+      }
+      break;
+
+    default:
+      try {
+        guestbookArray.value = await getGuestbookData();
+      } catch (err) {
+        console.error(err.message);
+      }
+      break;
   }
 }
 
@@ -56,7 +93,7 @@ supabase
     <GuestbookItem
       v-else
       v-for="guestbookData in guestbookArray"
-      :key="`${guestbookData.id}-${guestbookData.created_at}`"
+      :key="guestbookData.id"
       :guestbook-data="guestbookData"
     />
   </ul>

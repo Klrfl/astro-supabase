@@ -32,7 +32,7 @@ async function signGuestbook() {
     if (error) throw error;
     await supabase
       .from("guestbook")
-      .insert({ id: data.user.id, message: message.value });
+      .insert({ user_id: data.user.id, message: message.value });
 
     alert("message sucessfully added!");
     message.value = "";
@@ -42,18 +42,18 @@ async function signGuestbook() {
   }
 }
 
-onMounted(async () => {
+const updateGuestbook = async () => {
   userGuestbookCount.value = await getUserGuestbookCount();
-});
+};
+
+onMounted(updateGuestbook);
 
 supabase
   .channel("guestbook-list-changes")
   .on(
     "postgres_changes",
     { event: "*", schema: "public", table: "guestbook" },
-    async () => {
-      userGuestbookCount.value = await getUserGuestbookCount();
-    },
+    updateGuestbook,
   )
   .subscribe();
 </script>
