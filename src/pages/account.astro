@@ -25,10 +25,17 @@ if (error) console.error(error.message);
     <h2>Sign out</h2>
     <p>Sign out of your account.</p>
 
-    <CTA fill>Sign out</CTA>
+    <form action="api/auth/sign-out" method="POST">
+      <CTA fill>Sign out</CTA>
+    </form>
+  </section>
+
+  <section class="main-section">
     <h2 class="text-red-600">Delete account</h2>
     <p>Danger zone: deleting your account cannot be reversed.</p>
 
-    <CTA class="danger">delete my account</CTA>
+    <form action="api/auth/delete-account" method="POST">
+      <CTA class="danger">Delete my account</CTA>
+    </form>
   </section>
 </BaseLayout>
