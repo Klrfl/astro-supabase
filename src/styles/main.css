@@ -66,7 +66,7 @@
   }
 
   .main-section {
-    @apply p-8;
+    @apply px-8 py-4;
   }
 
   .main-section > * {
