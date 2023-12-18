@@ -2,38 +2,30 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTA from "../components/CTA.vue";
 
-import {createClient} from "../lib/supabase"
+import { createClient } from "../lib/supabase";
 const middleware = Astro.locals;
 const user = middleware.user;
 
-const supabase = createClient(Astro.cookies)
+const supabase = createClient(Astro.cookies);
 
-const {data, error} = await supabase.from("profiles").select("name, created_at").single()
-if (error) console.error(error.message)
+const { data, error } = await supabase
+  .from("profiles")
+  .select("name, created_at")
+  .single();
+if (error) console.error(error.message);
 ---
 
 <BaseLayout>
   <header>
     <h1 class="my-4">Hello, {data?.name}!</h1>
     <p>You're signed in as {user.email}</p>
-    <a href="/account/edit">Edit your details</a>
-    <a href="/account/update">Update your credentials</a>
   </header>
 
   <section class="main-section">
     <h2>Sign out</h2>
-<p>Sign out of your account.</p>
-    <!-- <form action="api/auth/sign-out" method="POST"> -->
-    <!--   <label for="email">Email</label> -->
-    <!--   <input type="email" required /> -->
-    <!--   <label for="password">Password</label> -->
-    <!--   <input type="password" required /><label for="confirm-password" -->
-    <!--     >Confirm password -->
-    <!--   </label> -->
-    <!--   <input type="password" id="confirm-password" required /> -->
-    <!---->
-    <!-- </form> -->
-      <CTA fill>Sign out</CTA>
+    <p>Sign out of your account.</p>
+
+    <CTA fill>Sign out</CTA>
     <h2 class="text-red-600">Delete account</h2>
     <p>Danger zone: deleting your account cannot be reversed.</p>
 
