@@ -48,21 +48,6 @@ async function updateGuestbookData(payload) {
       guestbookArray.value.splice(oldItem, 1);
       break;
 
-    case "UPDATE":
-      try {
-        const { data, error } = await supabase
-          .from("guestbook")
-          .select("*, profiles(name)")
-          .eq("id", payload.new.id)
-          .single();
-        if (error) throw error;
-        const oldItem = guestbookArray.value.indexOf(payload.old);
-        guestbookArray.value.splice(oldItem, 1, data);
-      } catch (err) {
-        console.error(err.message);
-      }
-      break;
-
     default:
       try {
         guestbookArray.value = await getGuestbookData();
