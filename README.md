@@ -1,5 +1,7 @@
 # Astro Supabase SSR
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ac1b7b40-17e3-4abf-8571-a3c7cf59f27f/deploy-status)](https://app.netlify.com/sites/super-piroshki-a73f6c/deploys)
+
 This is a website where I explore Supabase's SSR package, made with Astro and Tailwind.
 
 ## 🧞 Commands
