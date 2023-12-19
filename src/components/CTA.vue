@@ -20,7 +20,7 @@ const props = defineProps({
 
 <style>
 .cta {
-  @apply px-4 py-2 rounded-md shadow outline outline-2 outline-slate-200;
+  @apply px-4 py-2 rounded-md shadow outline outline-2 outline-slate-200 transition-colors;
 }
 
 .cta:hover {
