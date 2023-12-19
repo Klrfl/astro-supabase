@@ -1,7 +1,7 @@
-import { type APIRoute } from "astro";
+import { type APIContext } from "astro";
 import { createClient } from "../../../lib/supabase";
 
-export const POST: APIRoute = async ({ request, cookies, redirect }) => {
+export async function POST({ request, cookies, redirect }: APIContext) {
   const formData = await request.formData();
   const name = formData.get("name")?.toString()!;
   const email = formData.get("email")?.toString()!;
@@ -20,4 +20,4 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
 
   if (error) return new Response(error.message, { status: 500 });
   if (data) return redirect("/success");
-};
+}

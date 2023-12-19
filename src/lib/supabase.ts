@@ -7,7 +7,8 @@ import {
 const supabaseURL = import.meta.env.PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 
-export const createClient = (cookies: any) => {
+import type { AstroCookies } from "astro";
+export const createClient = (cookies: AstroCookies) => {
   return createServerClient(supabaseURL, supabaseAnonKey, {
     cookies: {
       get(key: string) {

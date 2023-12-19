@@ -18,7 +18,7 @@ if (error) console.error(error.message);
 <BaseLayout>
   <header>
     <h1 class="my-4">Hello, {data?.name}!</h1>
-    <p>You're signed in as {user.email}</p>
+    <p>You're signed in as {user?.email}</p>
   </header>
 
   <section class="main-section">
