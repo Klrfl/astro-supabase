@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTA from "../components/CTA.vue";
 
+const title = "Klrfl's Guestbook | Account";
 import { createClient } from "../lib/supabase";
 const middleware = Astro.locals;
 const user = middleware.user;
@@ -15,7 +16,7 @@ const { data, error } = await supabase
 if (error) console.error(error.message);
 ---
 
-<BaseLayout>
+<BaseLayout {title}>
   <header>
     <h1 class="my-4">Hello, {data?.name}!</h1>
     <p>You're signed in as {user?.email}</p>

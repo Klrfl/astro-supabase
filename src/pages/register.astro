@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTA from "../components/CTA.vue";
+
+const title = "Klrfl's Guestbook | Register";
+const description = "Make an account to continue to Klrfl's Guestbook";
 ---
 
-<BaseLayout>
+<BaseLayout {title} {description}>
   <section class="main-section max-w-4xl mx-auto">
     <h1>Register</h1>
     <p>Already have an account? <a href="/register">sign in instead</a></p>

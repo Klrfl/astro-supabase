@@ -3,11 +3,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import GuestbookForm from "../components/GuestbookForm.vue";
 import GuestbookList from "../components/GuestbookList.vue";
 
+const title = "Klrfl's Guestbook | The Book";
 const data = Astro.locals;
 const user = data.user;
+
+const description = "THIS IS THE GUESTBOOK!!";
 ---
 
-<BaseLayout>
+<BaseLayout {title} {description}>
   <header>
     <h1>Guestbook</h1>
     <p>Welcome to the guestbook, {user?.email}</p>
