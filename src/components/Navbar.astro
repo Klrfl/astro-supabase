@@ -6,7 +6,7 @@ const user = Astro.locals.user;
   <button class="open-nav">Open nav</button>
 
   <ul
-    class="nav-links rounded-md shadow-md lg:shadow-none outline outline-2 outline-gray-200 lg:outline-none backdrop-blur absolute inset-0 bottom-auto translate-x-full invisible lg:relative lg:visible lg:translate-x-0 flex flex-col lg:flex-row transition-all"
+    class="nav-links rounded-md shadow-md lg:shadow-none outline outline-2 outline-gray-200 lg:outline-none backdrop-blur absolute inset-0 bottom-auto -translate-y-full invisible lg:relative lg:visible lg:translate-y-0 flex flex-col lg:flex-row transition-all"
   >
     <li class="nav-links__header bg-gray-300">
       <button class="close-nav">Close nav</button>
@@ -58,6 +58,6 @@ const user = Astro.locals.user;
   }
 
   .nav-links.active {
-    @apply translate-x-0 visible;
+    @apply translate-y-0 visible;
   }
 </style>
