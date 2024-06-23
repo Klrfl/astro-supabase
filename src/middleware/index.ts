@@ -2,7 +2,7 @@
 import { defineMiddleware } from "astro:middleware";
 import { createClient } from "../lib/supabase";
 
-const protectedRoutes = ["/guestbook"];
+const protectedRoutes = ["/guestbook", "/account"];
 const redirectRoutes = ["/sign-in", "/register", "/success"];
 
 export const onRequest = defineMiddleware(
